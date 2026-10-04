@@ -10,6 +10,8 @@ public class Main {
       System.out.println("1. Add habit");
       System.out.println("2. List habits");
       System.out.println("3. Remove habit");
+      System.out.println("4. Mark habit done today");
+      System.out.println("5. Show today's progress");
       System.out.println("0. Exit");
       System.out.print("Choose: ");
 
@@ -55,6 +57,35 @@ public class Main {
             }
           } catch (NumberFormatException e) {
             System.out.println("Please enter a valid number.");
+          }
+          break;
+        }
+        case 4: {
+          System.out.print("Enter habit ID to mark done: ");
+          try {
+            int id = Integer.parseInt(scanner.nextLine().trim());
+            if (!service.habitExists(id)) {
+              System.out.println("No habit with ID " + id);
+            } else if (service.markDoneToday(id)) {
+              System.out.println("Marked habit " + id + " as done today.");
+            } else {
+              System.out.println("Habit " + id + " is already marked today.");
+            }
+          } catch (NumberFormatException e) {
+            System.out.println("Please enter a valid number.");
+          }
+          break;
+        }
+        case 5: {
+          List<Habit> habits = service.listHabits();
+          if (habits.isEmpty()) {
+            System.out.println("No habits yet.");
+          } else {
+            System.out.println("Today's progress:");
+            for (Habit habit : habits) {
+              String box = service.isDoneToday(habit.getId()) ? "[x]" : "[ ]";
+              System.out.println(box + " " + habit.getName());
+            }
           }
           break;
         }
