@@ -90,13 +90,3 @@ Winter Arc project (Oct 3 – Dec 31, 2026). A console habit tracker in Java tha
 
 ---
 
-## Good habits so far
-- Commit and push at the end of every session.
-- Write the notes the same day, in my own words.
-- Test after every small change, not at the end.
-- Break the program on purpose: bad input, wrong IDs, empty values.
-
-## Coming up
-- **Day 5:** Streams, and stats (completion %, perfect days, per-habit totals).
-- **Day 6:** Streak logic and JUnit tests.
-- **Day 7:** Saving and loading data with files.
